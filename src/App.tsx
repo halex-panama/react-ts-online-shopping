@@ -2,16 +2,21 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { HomePage, CartPage } from "./pages";
 import { Navbar, Sidebar } from "./components";
 
+import { Provider } from "react-redux";
+import store from "./store/store";
+
 const App = () => {
   return (
-    <BrowserRouter>
-      <Navbar />
-      <Sidebar />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/cart" element={<CartPage />} />
-      </Routes>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Navbar />
+        <Sidebar />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/cart" element={<CartPage />} />
+        </Routes>
+      </BrowserRouter>
+    </Provider>
   );
 };
 

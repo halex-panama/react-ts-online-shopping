@@ -1,12 +1,20 @@
 import { Link } from "react-router-dom";
+import { setSidebarOn } from "../store/sidebarSlice";
+import { useDispatch } from "react-redux";
 
 const Navbar = () => {
+  const dispatch = useDispatch();
+
   return (
     <nav className="navbar px-5 py-3 bg-orange-500 text-white">
       <div className="navbar-container flex items-center sm:mx-10">
         {/* left side */}
         <div className="brand-and-button text-2xl flex items-center gap-3">
-          <button type="button" className="sidebar-show-btn text-white">
+          <button
+            onClick={() => dispatch(setSidebarOn())}
+            type="button"
+            className="sidebar-show-btn text-white"
+          >
             <i className="fas fa-bars"></i>
           </button>
           <Link to="/" className="navbar-brand flex items-center">
