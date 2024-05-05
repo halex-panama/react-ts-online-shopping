@@ -17,13 +17,21 @@ const HeaderSlider = () => {
   return (
     <div className="slider">
       <div className="container my-0 mx-auto py-0 px-8 max-w-7xl">
-        <div className="slider-content overflow-hidden">
+        <div className="slider-content overflow-hidden rounded-md">
           <Slider {...settings}>
-            <div className="slider-item max-h-[300px]">
-              <img src={sliderImgs[0]} alt="slider-image" />
+            <div className="slider-item max-h-[300px] rounded-md">
+              <img
+                src={sliderImgs[0]}
+                className="rounded-md"
+                alt="slider-image"
+              />
             </div>
             <div className="slider-item">
-              <img src={sliderImgs[1]} alt="slider-image" />
+              <img
+                src={sliderImgs[1]}
+                className="rounded-md"
+                alt="slider-image"
+              />
             </div>
           </Slider>
         </div>

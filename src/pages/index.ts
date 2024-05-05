@@ -1,5 +1,6 @@
 import HomePage from "./HomePage";
 import CartPage from "./CartPage";
-import Category from "./Category";
+import CategoryPage from "./CategoryPage";
+import ProductsPage from "./ProductsPage";
 
-export { HomePage, CartPage, Category };
+export { HomePage, CartPage, CategoryPage, ProductsPage };

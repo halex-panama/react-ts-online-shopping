@@ -10,7 +10,7 @@ const Navbar = () => {
   );
 
   return (
-    <nav className="navbar px-5 py-3 bg-orange-500 text-white mb-2">
+    <nav className="navbar px-5 py-3 bg-orange-500 text-white">
       <div className="navbar-container flex items-center sm:mx-10">
         {/* left side */}
         <div className="brand-and-button text-2xl flex items-center gap-3">
