@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import { setSidebarOn } from "../store/sidebarSlice";
 import { useDispatch } from "react-redux";
+import { AppDispatch } from "../store/store";
 
 const Navbar = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   return (
     <nav className="navbar px-5 py-3 bg-orange-500 text-white">
