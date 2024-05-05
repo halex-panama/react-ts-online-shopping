@@ -35,12 +35,12 @@ const Sidebar = () => {
         <div className="pb-4 font-semibold uppercase text-lg">
           All Categories
         </div>
-        <ul className="category-list overflow-y-scroll h-[calc(100vh-60px)]">
+        <ul className="category-list overflow-y-scroll h-[calc(100vh-120px)]">
           {categories &&
             categories.length > 0 &&
             categories.map((category) => (
               <li
-                id={category}
+                key={category}
                 onClick={() => dispatch(setSidebarOff())}
                 className="py-3 mr-5"
               >

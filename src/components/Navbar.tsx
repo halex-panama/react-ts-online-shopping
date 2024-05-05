@@ -1,13 +1,16 @@
 import { Link } from "react-router-dom";
 import { setSidebarOn } from "../store/sidebarSlice";
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "../store/store";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../store/store";
 
 const Navbar = () => {
   const dispatch = useDispatch<AppDispatch>();
+  const categories = useSelector(
+    (state: RootState) => state.category.categories
+  );
 
   return (
-    <nav className="navbar px-5 py-3 bg-orange-500 text-white">
+    <nav className="navbar px-5 py-3 bg-orange-500 text-white mb-2">
       <div className="navbar-container flex items-center sm:mx-10">
         {/* left side */}
         <div className="brand-and-button text-2xl flex items-center gap-3">
@@ -44,9 +47,14 @@ const Navbar = () => {
             </div>
           </div>
 
-          <ul className="navbar-nav hidden items-center text-xs ml-8 mt-2 gap-2 sm:flex">
-            <li>Category here</li>
-            <li>Category here</li>
+          <ul className="navbar-nav hidden items-center text-xs ml-6 mt-2 gap-4 sm:flex">
+            {categories &&
+              categories.length > 0 &&
+              categories.slice(0, 8).map((cat) => (
+                <li className="capitalize" key={cat}>
+                  <Link to={"/category"}>{cat}</Link>
+                </li>
+              ))}
           </ul>
         </div>
 

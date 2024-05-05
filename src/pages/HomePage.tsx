@@ -1,5 +1,13 @@
+import { HeaderSlider } from "../components";
+
 const HomePage = () => {
-  return <div>Home</div>;
+  return (
+    <main>
+      <div>
+        <HeaderSlider />
+      </div>
+    </main>
+  );
 };
 
 export default HomePage;
