@@ -16,7 +16,7 @@ const HeaderSlider = () => {
   };
   return (
     <div className="slider">
-      <div className="container my-0 mx-auto py-0 px-8 max-w-7xl">
+      <div className="container my-0 mx-auto py-0 px-2 max-w-7xl md:px-8">
         <div className="slider-content overflow-hidden rounded-md">
           <Slider {...settings}>
             <div className="slider-item max-h-[300px] rounded-md">

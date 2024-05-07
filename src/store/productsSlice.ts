@@ -24,15 +24,15 @@ export type ProductsArr = {
 };
 
 export type initialTypeState = {
-  products: ProductsArr;
-  productStatus: string;
+  allProducts: ProductsArr;
+  allProductsStatus: string;
   productSingle: Products;
   productSingleStatus: string;
 };
 
 const initialState: initialTypeState = {
-  products: {} as ProductsArr,
-  productStatus: STATUS.IDLE,
+  allProducts: {} as ProductsArr,
+  allProductsStatus: STATUS.IDLE,
   productSingle: {} as Products,
   productSingleStatus: STATUS.IDLE,
 };
@@ -43,14 +43,14 @@ const productsSlice = createSlice({
   reducers: {},
   extraReducers(builder) {
     builder.addCase(fetchAsyncProducts.pending, (state) => {
-      state.productStatus = STATUS.LOADING;
+      state.allProductsStatus = STATUS.LOADING;
     });
     builder.addCase(fetchAsyncProducts.fulfilled, (state, action) => {
-      state.productStatus = STATUS.SUCCEEDED;
-      state.products = action.payload;
+      state.allProductsStatus = STATUS.SUCCEEDED;
+      state.allProducts = action.payload;
     });
     builder.addCase(fetchAsyncProducts.rejected, (state) => {
-      state.productStatus = STATUS.FAILED;
+      state.allProductsStatus = STATUS.FAILED;
     });
 
     //single products

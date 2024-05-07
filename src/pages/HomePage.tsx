@@ -8,9 +8,9 @@ import { STATUS } from "../utils/status";
 
 const HomePage = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const data = useSelector((state: RootState) => state.products.products);
+  const data = useSelector((state: RootState) => state.products.allProducts);
   const productStatus = useSelector(
-    (state: RootState) => state.products.productStatus
+    (state: RootState) => state.products.allProductsStatus
   );
 
   useEffect(() => {
@@ -19,12 +19,12 @@ const HomePage = () => {
 
   return (
     <main>
-      <div className="my-8">
+      <div className="my-2 md:my-8">
         <HeaderSlider />
       </div>
 
-      <div className="main-content h-screen bg-gray-200">
-        <div className="container px-8">
+      <div className="main-content h-full bg-gray-200">
+        <div className="container px-4 mx-auto md:py-8">
           <div className="categories py-5">
             <div className="categories-item mb-[4.8rem]">
               <div className="title-md relative mb-[2.8rem] border-b-2 bg-white py-5 pl-8">

@@ -44,7 +44,10 @@ const Sidebar = () => {
                 onClick={() => dispatch(setSidebarOff())}
                 className="py-3 mr-5"
               >
-                <Link className="text-sm capitalize" to={"/category"}>
+                <Link
+                  className="text-sm capitalize"
+                  to={`/category/${category}`}
+                >
                   {category}
                 </Link>
               </li>

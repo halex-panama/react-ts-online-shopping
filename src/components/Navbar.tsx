@@ -52,7 +52,7 @@ const Navbar = () => {
               categories.length > 0 &&
               categories.slice(0, 8).map((cat) => (
                 <li className="capitalize" key={cat}>
-                  <Link to={"/category"}>{cat}</Link>
+                  <Link to={`/category/${cat}`}>{cat}</Link>
                 </li>
               ))}
           </ul>
