@@ -1,18 +1,14 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { AppDispatch, RootState } from "../store/store";
 import { setSidebarOff } from "../store/sidebarSlice";
 import { fetchAsyncCategories } from "../store/categorySlice";
+import { useAppHooks } from "../store/hooks";
 
 const Sidebar = () => {
-  const dispatch = useDispatch<AppDispatch>();
-  const getSidebarStatus = useSelector(
-    (state: RootState) => state.sidebar.isSideBarOn
-  );
-  const categories = useSelector(
-    (state: RootState) => state.category.categories
-  );
+  const { dispatch, categoryState, sidebarState } = useAppHooks();
+
+  const getSidebarStatus = sidebarState.isSideBarOn;
+  const categories = categoryState.categories;
 
   useEffect(() => {
     dispatch(fetchAsyncCategories());

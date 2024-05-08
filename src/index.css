@@ -62,3 +62,17 @@
   border-bottom: 5px solid transparent;
   border-right: 5px solid rgb(249 115 22);
 }
+
+.product-single-content {
+  @media screen and (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 4rem;
+  }
+}
+
+.vert-line {
+  width: 2px;
+  background-color: rgb(249 115 22);
+  height: 16px;
+  margin: 0 12px;
+}

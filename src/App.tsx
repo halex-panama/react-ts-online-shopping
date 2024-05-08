@@ -1,5 +1,11 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { HomePage, CartPage, CategoryPage, ProductsPage } from "./pages";
+import {
+  HomePage,
+  CartPage,
+  CategoryPage,
+  ProductsPage,
+  SearchPage,
+} from "./pages";
 import { Navbar, Sidebar } from "./components";
 
 import { Provider } from "react-redux";
@@ -15,7 +21,8 @@ const App = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/category/:category" element={<CategoryPage />} />
-          <Route path="/products" element={<ProductsPage />} />
+          <Route path="/products/:productId" element={<ProductsPage />} />
+          <Route path="/search/:searchTerm" element={<SearchPage />} />
         </Routes>
       </BrowserRouter>
     </Provider>

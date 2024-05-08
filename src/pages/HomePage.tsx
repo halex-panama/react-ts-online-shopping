@@ -1,20 +1,17 @@
 import { useEffect } from "react";
 import { HeaderSlider } from "../components";
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../store/store";
 import { fetchAsyncProducts } from "../store/productsSlice";
 import { Loader, ProductList } from "../components";
 import { STATUS } from "../utils/status";
+import { useAppHooks } from "../store/hooks";
 
 const HomePage = () => {
-  const dispatch = useDispatch<AppDispatch>();
-  const data = useSelector((state: RootState) => state.products.allProducts);
-  const productStatus = useSelector(
-    (state: RootState) => state.products.allProductsStatus
-  );
+  const { dispatch, productsState } = useAppHooks();
+  const allProducts = productsState.allProducts.products;
+  const productStatus = productsState.allProductsStatus;
 
   useEffect(() => {
-    dispatch(fetchAsyncProducts(20));
+    dispatch(fetchAsyncProducts(40));
   }, []);
 
   return (
@@ -35,7 +32,7 @@ const HomePage = () => {
               {productStatus === STATUS.LOADING ? (
                 <Loader />
               ) : (
-                <ProductList products={data.products} />
+                <ProductList products={allProducts} />
               )}
             </div>
           </div>

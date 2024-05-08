@@ -1,17 +1,19 @@
 import { Link } from "react-router-dom";
 import { Products } from "../store/productsSlice";
-import { formatPrice } from "../utils/formatPrice";
+import { formatPrice, calculateDiscountPrice } from "../utils/formatPrice";
 
 type Props = {
   product: Products;
 };
 
 const ProductCard = ({ product }: Props) => {
-  let discountedPrice =
-    product.price - product.price * (product.discountPercentage / 100);
+  let discountedPrice = calculateDiscountPrice(
+    product.price,
+    product.discountPercentage
+  );
 
   return (
-    <Link to={`/products`}>
+    <Link to={`/products/${product.id}`}>
       <div className="product-item bg-white relative rounded-lg">
         <div className="category-product-card absolute left-[-5px] top-2 bg-orange-500 text-white capitalize text-sm py-1 px-4">
           {product.category}

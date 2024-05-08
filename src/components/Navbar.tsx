@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 import { setSidebarOn } from "../store/sidebarSlice";
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../store/store";
+import { useAppHooks } from "../store/hooks";
+import { useState } from "react";
 
 const Navbar = () => {
-  const dispatch = useDispatch<AppDispatch>();
-  const categories = useSelector(
-    (state: RootState) => state.category.categories
-  );
+  const { dispatch, categoryState } = useAppHooks();
+  const categories = categoryState.categories;
+
+  const [searchTerm, setSearchTerm] = useState("");
 
   return (
     <nav className="navbar px-5 py-3 bg-orange-500 text-white">
@@ -37,9 +37,10 @@ const Navbar = () => {
                 type="text"
                 className="form-control text-sm w-full px-1 py-2 text-black placeholder:text-sm focus:outline-transparent"
                 placeholder="Search products"
+                onChange={(e) => setSearchTerm(e.target.value)}
               />
               <Link
-                to={`/search`}
+                to={`/search/${searchTerm}`}
                 className="text-white search-btn flex items-center justify-center bg-orange-500 w-14 h-8"
               >
                 <i className="fa-solid fa-magnifying-glass"></i>
