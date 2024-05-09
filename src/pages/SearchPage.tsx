@@ -17,8 +17,14 @@ const SearchPage = () => {
     dispatch(fetchSearchProducts(searchTerm as string));
   }, [searchTerm]);
 
-  console.log(searchTerm);
-  console.log(searchProduct);
+  if (searchProduct && searchProduct.length <= 0)
+    return (
+      <div className="container h-[70vh]">
+        <div className="py-5 max-w-screen-xl my-auto px-2">
+          No products found
+        </div>
+      </div>
+    );
 
   return (
     <main>

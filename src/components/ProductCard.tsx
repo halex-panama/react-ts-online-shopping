@@ -30,7 +30,7 @@ const ProductCard = ({ product }: Props) => {
             <span className="mr-1">Brand:</span>
             <span className="font-bold">{product.brand}</span>
           </div>
-          <div className="title py-2">{product.title}</div>
+          <div className="title py-2 capitalize">{product.title}</div>
           <div className="price relative">
             <span className="old-price opacity-70 line-through text-xs">
               {formatPrice(product.price)}

@@ -16,8 +16,6 @@ const CategoryPage = () => {
     dispatch(fetchAsyncProductsCategories(category as string));
   }, [category]);
 
-  console.log(categoryProducts);
-
   return (
     <main>
       <div

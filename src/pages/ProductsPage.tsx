@@ -1,30 +1,72 @@
 import { useParams } from "react-router-dom";
 import { useAppHooks } from "../store/hooks";
-import { useEffect } from "react";
-import { fetchAsyncSingleProducts } from "../store/productsSlice";
+import { useEffect, useState } from "react";
+import { Products, fetchAsyncSingleProducts } from "../store/productsSlice";
 import { STATUS } from "../utils/status";
-import { Loader } from "../components";
+import { CartMessage, Loader } from "../components";
 import { calculateDiscountPrice, formatPrice } from "../utils/formatPrice";
+import {
+  addToCart,
+  setCartMessageOff,
+  setCartMessageOn,
+} from "../store/cartSlice";
 
 const ProductsPage = () => {
   const { productId } = useParams();
 
-  const { dispatch, productsState } = useAppHooks();
+  const { dispatch, productsState, cartState } = useAppHooks();
   const singleProduct = productsState.productSingle;
   const singleProductStatus = productsState.productSingleStatus;
+  const cartMessageStatus = cartState.isCartMessageOn;
+
+  const [qty, setQty] = useState(1);
 
   useEffect(() => {
     dispatch(fetchAsyncSingleProducts(Number(productId)));
-  }, [productId]);
+
+    if (cartMessageStatus) {
+      setTimeout(() => {
+        dispatch(setCartMessageOff());
+      }, 2000);
+    }
+  }, [cartMessageStatus, productId]);
 
   let discountedPrice = calculateDiscountPrice(
     singleProduct.price,
     singleProduct.discountPercentage
   );
 
-  if (singleProductStatus === STATUS.LOADING) return <Loader />;
+  const increaseQty = () => {
+    setQty((prev) => {
+      let tempQty = prev + 1;
+      if (tempQty > singleProduct.stock) tempQty = singleProduct.stock;
+      return tempQty;
+    });
+  };
 
-  console.log(singleProduct);
+  const decreaseQty = () => {
+    setQty((prev) => {
+      let tempQty = prev - 1;
+      if (tempQty < 1) tempQty = 1;
+      return tempQty;
+    });
+  };
+
+  const addToCartHandler = (product: Products) => {
+    let discountedPrice = calculateDiscountPrice(
+      product.price,
+      product.discountPercentage
+    );
+
+    let totalPrice = qty * discountedPrice;
+
+    dispatch(
+      addToCart({ ...product, quantity: qty, totalPrice, discountedPrice })
+    );
+    dispatch(setCartMessageOn());
+  };
+
+  if (singleProductStatus === STATUS.LOADING) return <Loader />;
 
   return (
     <main className="py-5 bg-gray-100">
@@ -92,7 +134,7 @@ const ProductsPage = () => {
 
             <div className="product-single-r">
               <div className="product-details ">
-                <div className="title pb-2 border-b-2 text-xl">
+                <div className="title pb-2 border-b-2 text-xl capitalize">
                   {singleProduct.title}
                 </div>
                 <div>
@@ -119,7 +161,7 @@ const ProductsPage = () => {
                   </div>
                 </div>
 
-                <div className="price bg-black/5">
+                <div className="price bg-black/5 px-1 py-2">
                   <div className="flex">
                     <div className="old-price line-through text-gray-500">
                       {formatPrice(singleProduct.price)}
@@ -139,21 +181,23 @@ const ProductsPage = () => {
                   </div>
                 </div>
 
-                <div className="qty flex items-center my-4">
+                <div className="qty flex items-center my-4 gap-2">
                   <div className="qty-text">Quantity:</div>
                   <div className="qty-change flex">
                     <button
                       type="button"
                       className="qty-decrease w-7 h-7 border-2 border-black/10 text-sm"
+                      onClick={decreaseQty}
                     >
                       <i className="fas fa-minus"></i>
                     </button>
                     <div className="qty-value h-7 w-10 border-t-2 border-b-2 border-black/10 text-center">
-                      0
+                      {qty}
                     </div>
                     <button
                       type="button"
                       className="qty-increase w-7 h-7 border-2 border-black/10 text-sm"
+                      onClick={increaseQty}
                     >
                       <i className="fas fa-plus"></i>
                     </button>
@@ -167,14 +211,15 @@ const ProductsPage = () => {
                 <div className="btns flex gap-2">
                   <button
                     type="button"
-                    className="add-to-cart-btn h-10 text-base border-2 border-orange-500 px-7 bg-white text-orange-500"
+                    className="add-to-cart-btn text-base border-2 border-orange-500 w-40 h-12 bg-white text-orange-500"
+                    onClick={() => addToCartHandler(singleProduct)}
                   >
                     <i className="fas fa-shopping-cart"></i>
                     <span className="text-orange-500 mx-2">Add to Cart</span>
                   </button>
                   <button
                     type="button"
-                    className="buy-now h-10 text-base border-2 border-orange-500 bg-orange-500 text-white px-7"
+                    className="buy-now text-base border-2 border-orange-500 bg-orange-500 text-white w-40 h-12"
                   >
                     Buy Now
                   </button>
@@ -184,6 +229,7 @@ const ProductsPage = () => {
           </div>
         </div>
       </div>
+      {cartMessageStatus && <CartMessage />}
     </main>
   );
 };
