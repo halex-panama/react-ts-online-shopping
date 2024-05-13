@@ -29,7 +29,7 @@ const SearchPage = () => {
   return (
     <main>
       <div
-        className={`main-content bg-gray-200 ${
+        className={`main-content bg-gray/30 ${
           searchProductStatus === STATUS.LOADING
             ? "bg-transparent"
             : "bg-gray-200"
@@ -38,7 +38,7 @@ const SearchPage = () => {
         <div className="container px-4 mx-auto md:py-8">
           <div className="categories py-5">
             <div className="categories-item mb-[4.8rem]">
-              <div className="title-md relative mb-[2.8rem] border-b-2 bg-white py-5 pl-8">
+              <div className="title-md relative mb-[2.8rem] border-b-2 border-black/10 bg-white py-5 pl-8">
                 <h3 className="uppercase text-2xl font-semibold text-[rgba(0,0,0,0.4)] ">
                   Searched products for: {searchTerm}
                 </h3>

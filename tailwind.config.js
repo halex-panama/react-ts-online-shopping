@@ -4,6 +4,15 @@ export default {
 
   theme: {
     extend: {},
+    colors: {
+      transparent: "transparent",
+      current: "currentColor",
+      primary: "#EE4D2D",
+      white: "#ffffff",
+      black: "#000",
+      gray: "#929292",
+      warning: "#D0011B",
+    },
   },
   plugins: [],
 };

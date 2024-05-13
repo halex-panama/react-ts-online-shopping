@@ -1,7 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { Products } from "./productsSlice";
 
-export type Carts = Products & { quantity: number; totalPrices: number };
+export type Carts = Products & {
+  quantity: number;
+  totalPrices: number;
+  discountedPrice: number;
+};
 
 export type initialStateType = {
   carts: Carts[];
@@ -63,9 +67,62 @@ const cartSlice = createSlice({
         storeInLocalStorage(state.carts);
       }
     },
+
+    removeFromCart: (state, action) => {
+      const tempCart = state.carts.filter((item) => item.id !== action.payload);
+      state.carts = tempCart;
+      storeInLocalStorage(state.carts);
+    },
+
+    clearCart: (state) => {
+      state.carts = [];
+      storeInLocalStorage(state.carts);
+    },
+
+    getCartTotal: (state) => {
+      state.totalAmount = state.carts.reduce((cartTotal, cartItem) => {
+        return (cartTotal += cartItem.totalPrices);
+      }, 0);
+
+      state.itemsCount = state.carts.length;
+    },
+
+    toggleCartQty: (state, action) => {
+      const tempCart = state.carts.map((item) => {
+        if (item.id === action.payload.id) {
+          let tempQty = item.quantity;
+          let tempTotalPrice = item.totalPrices;
+
+          if (action.payload.type === "INC") {
+            tempQty++;
+            if (tempQty === item.stock) tempQty = item.stock;
+            tempTotalPrice = tempQty * item.discountedPrice;
+          }
+
+          if (action.payload.type === "DEC") {
+            tempQty--;
+            if (tempQty < 1) tempQty = 1;
+            tempTotalPrice = tempQty * item.discountedPrice;
+          }
+
+          return {
+            ...item,
+            quantity: tempQty,
+            totalPrices: tempTotalPrice,
+          };
+        } else {
+          return item;
+        }
+      });
+
+      state.carts = tempCart;
+      storeInLocalStorage(state.carts);
+    },
+
     setCartMessageOn: (state) => {
       state.isCartMessageOn = true;
     },
+
     setCartMessageOff: (state) => {
       state.isCartMessageOn = false;
     },
@@ -73,5 +130,12 @@ const cartSlice = createSlice({
 });
 
 export default cartSlice.reducer;
-export const { addToCart, setCartMessageOff, setCartMessageOn } =
-  cartSlice.actions;
+export const {
+  addToCart,
+  removeFromCart,
+  clearCart,
+  getCartTotal,
+  toggleCartQty,
+  setCartMessageOff,
+  setCartMessageOn,
+} = cartSlice.actions;

@@ -22,14 +22,14 @@ const CategoryPage = () => {
         className={`main-content bg-gray-200 ${
           categoryProductsStatus === STATUS.LOADING
             ? "bg-transparent"
-            : "bg-gray-200"
+            : "bg-gray/30"
         }`}
       >
         <div className="container px-4 mx-auto md:py-8">
           <div className="categories py-5">
             <div className="categories-item mb-[4.8rem]">
-              <div className="title-md relative mb-[2.8rem] border-b-2 bg-white py-5 pl-8">
-                <h3 className="uppercase text-2xl font-semibold text-[rgba(0,0,0,0.4)] ">
+              <div className="title-md relative mb-[2.8rem] border-b-2 border-black/10 bg-white py-5 pl-8">
+                <h3 className="uppercase text-2xl font-semibold  text-[rgba(0,0,0,0.4)] ">
                   {category}
                 </h3>
               </div>

@@ -20,11 +20,11 @@ const HomePage = () => {
         <HeaderSlider />
       </div>
 
-      <div className="main-content h-full bg-gray-200">
+      <div className="main-content h-full bg-gray/30">
         <div className="container px-4 mx-auto md:py-8">
           <div className="categories py-5">
             <div className="categories-item mb-[4.8rem]">
-              <div className="title-md relative mb-[2.8rem] border-b-2 bg-white py-5 pl-8">
+              <div className="title-md relative mb-[2.8rem] border-b-2 border-black/10 bg-white py-5 pl-8">
                 <h3 className="uppercase text-2xl font-semibold text-[rgba(0,0,0,0.4)] ">
                   See Our Products
                 </h3>
