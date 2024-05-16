@@ -41,8 +41,8 @@ const CartPage = () => {
   return (
     <div className="cart bg-gray-50 overflow-x-scroll">
       <div className="container p-0 mx-auto">
-        <div className="cart-ctable min-w-[1000px]">
-          <div className="cart-chead my-8 px-8 rounded-sm bg-white">
+        <div className="cart-ctable sm:min-w-[1000px]:">
+          <div className="cart-chead my-8 px-8 rounded-sm bg-white hidden sm:grid">
             <div className="cart-ctr grid min-h-10 items-center border-black/10 border-y-2 font-semibold">
               <div className="cart cth">
                 <span className="cart-ctxt">S.N</span>
@@ -65,17 +65,17 @@ const CartPage = () => {
             </div>
           </div>
 
-          <div className="cart-cbody px-8 rounded-sm bg-white">
+          <div className="cart-cbody px-8 rounded-sm bg-white my-2">
             {carts.map((cart, index) => (
-              <div className="cart-ctr grid min-h-10 items-center py-2">
-                <div className="card-ctd">
+              <div className="cart-ctr min-h-10  py-2 border-b-2 flex flex-col gap-2 border-black/10 sm:grid">
+                <div className="card-ctd hidden sm:grid">
                   <span className="cart-ctxt">{index + 1}</span>
                 </div>
                 <div className="card-ctd">
                   <span className="cart-ctxt">{cart.title}</span>
                 </div>
                 <div className="card-ctd">
-                  <span className="cart-ctxt">
+                  <span className="cart-ctxt text-primary sm:text-black">
                     {formatPrice(cart.discountedPrice)}
                   </span>
                 </div>
@@ -114,7 +114,7 @@ const CartPage = () => {
                     </button>
                   </div>
                 </div>
-                <div className="card-ctd">
+                <div className="card-ctd hidden sm:grid">
                   <span className="cart-ctxt text-primary">
                     {formatPrice(cart.totalPrices)}
                   </span>
@@ -132,7 +132,7 @@ const CartPage = () => {
             ))}
           </div>
 
-          <div className="cart-cfoot my-8 px-8 flex items-center justify-between">
+          <div className="cart-cfoot gap-4 grid my-8 px-8  sm:flex sm:items-center  sm:justify-between">
             <div className="cart-cfoot-l">
               <button
                 className="clear-cart border-2 border-warning text-warning uppercase p-2 flex items-center gap-1"
