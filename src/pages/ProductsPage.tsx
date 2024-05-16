@@ -215,7 +215,7 @@ const ProductsPage = () => {
                 <div className="btns flex gap-2">
                   <button
                     type="button"
-                    className="add-to-cart-btn text-base border-2 border-primary w-40 h-12 bg-white text-primary bg-primary/20 hover:bg-transparent transition-colors"
+                    className="add-to-cart-btn text-base border-2 border-primary w-40 h-12  text-primary bg-primary/20 hover:bg-transparent transition-colors"
                     onClick={() => addToCartHandler(singleProduct)}
                   >
                     <i className="fas fa-shopping-cart"></i>

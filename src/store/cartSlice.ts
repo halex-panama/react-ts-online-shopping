@@ -75,7 +75,7 @@ const cartSlice = createSlice({
     },
 
     clearCart: (state) => {
-      state.carts = [];
+      state.carts = [] as Carts[];
       storeInLocalStorage(state.carts);
     },
 

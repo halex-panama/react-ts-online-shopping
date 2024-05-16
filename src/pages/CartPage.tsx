@@ -19,10 +19,6 @@ const CartPage = () => {
     dispatch(getCartTotal());
   }, [carts]);
 
-  console.log(carts);
-  console.log(totalAmount);
-  console.log(itemsCount);
-
   if (carts.length === 0) {
     return (
       <div className="container my-5 flex justify-center items-center">

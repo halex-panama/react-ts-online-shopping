@@ -14,7 +14,7 @@ const ProductCard = ({ product }: Props) => {
 
   return (
     <Link to={`/products/${product.id}`}>
-      <div className="product-item bg-white border-white hover:border-primary border-2 relative rounded-lg transition-all">
+      <div className="product-item bg-white border-white hover:border-primary border-2 relative rounded-lg transition-all hover:scale-[1.01]">
         <div className="category-product-card absolute left-[-5px] top-2 bg-primary text-white capitalize text-sm py-1 px-4">
           {product.category}
         </div>
