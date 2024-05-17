@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { HeaderSlider } from "../components";
-import { fetchAsyncProducts } from "../store/productsSlice";
+import { Products, fetchAsyncProducts } from "../store/productsSlice";
 import { Loader, ProductList } from "../components";
 import { STATUS } from "../utils/status";
 import { useAppHooks } from "../store/hooks";
@@ -13,6 +13,19 @@ const HomePage = () => {
   useEffect(() => {
     dispatch(fetchAsyncProducts(40));
   }, []);
+
+  const randomProducts = [] as Products[];
+
+  if (allProducts && allProducts.length > 0) {
+    for (let i in allProducts) {
+      let randomIndex = Math.floor(Math.random() * allProducts.length);
+
+      while (randomProducts.includes(allProducts[randomIndex])) {
+        randomIndex = Math.floor(Math.random() * allProducts.length);
+      }
+      randomProducts[i] = allProducts[randomIndex];
+    }
+  }
 
   return (
     <main>
@@ -32,7 +45,7 @@ const HomePage = () => {
               {productStatus === STATUS.LOADING ? (
                 <Loader />
               ) : (
-                <ProductList products={allProducts} />
+                <ProductList products={randomProducts} />
               )}
             </div>
           </div>
