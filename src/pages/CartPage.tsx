@@ -67,7 +67,10 @@ const CartPage = () => {
 
           <div className="cart-cbody px-8 rounded-sm bg-white my-2">
             {carts.map((cart, index) => (
-              <div className="cart-ctr min-h-10  py-2 border-b-2 flex flex-col gap-2 border-black/10 sm:grid sm:border-0">
+              <div
+                className="cart-ctr min-h-10  py-2 border-b-2 flex flex-col gap-2 border-black/10 sm:grid sm:border-0"
+                key={cart.id}
+              >
                 <div className="card-ctd hidden sm:grid">
                   <span className="cart-ctxt">{index + 1}</span>
                 </div>

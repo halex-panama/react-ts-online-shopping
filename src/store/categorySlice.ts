@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { BASE_URL } from "../utils/apiUrl";
 import { STATUS } from "../utils/status";
 import { ProductsArr } from "./productsSlice";
+
 export type CategoriesType = string[];
 
 export type initialTypeState = {
@@ -51,7 +52,7 @@ const categorySlice = createSlice({
 export const fetchAsyncCategories = createAsyncThunk(
   "categories/fetch",
   async () => {
-    const response = await fetch(`${BASE_URL}products/categories`);
+    const response = await fetch(`${BASE_URL}products/category-list`);
     const data = await response.json();
     return data;
   }
