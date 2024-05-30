@@ -153,14 +153,16 @@ const ProductsPage = () => {
                   </div>
                   <div className="vert-line"></div>
                   <div className="brand">
-                    <span className="text-primary">Brand:</span>
-                    <span className="mx-1">{singleProduct.brand}</span>
-                  </div>
-                  <div className="vert-line"></div>
-                  <div className="brand">
                     <span className="text-primary">Category:</span>
                     <span className="mx-1 capitalize">
                       {singleProduct.category}
+                    </span>
+                  </div>
+                  <div className="vert-line"></div>
+                  <div className="brand">
+                    <span className="text-primary">Return:</span>
+                    <span className="mx-1 capitalize">
+                      {singleProduct.returnPolicy}
                     </span>
                   </div>
                 </div>

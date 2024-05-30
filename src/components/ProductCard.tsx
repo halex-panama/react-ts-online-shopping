@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Products } from "../store/productsSlice";
 import { formatPrice, calculateDiscountPrice } from "../utils/formatPrice";
+import { star } from "../utils/images";
 
 type Props = {
   product: Products;
@@ -26,12 +27,10 @@ const ProductCard = ({ product }: Props) => {
           />
         </div>
         <div className="product-item-info text-base py-3 px-5 text-center">
-          <div className="brand border-b-2 pb-2 border-black/20">
-            <span className="mr-1">Brand:</span>
-            <span className="font-bold">{product.brand}</span>
+          <div className="title py-2 capitalize border-b-2 border-black/20">
+            {product.title}
           </div>
-          <div className="title py-2 capitalize">{product.title}</div>
-          <div className="price relative">
+          <div className="price relative py-2">
             <span className="old-price opacity-70 line-through text-xs">
               {formatPrice(product.price)}
             </span>
@@ -40,6 +39,15 @@ const ProductCard = ({ product }: Props) => {
             </span>
             <span className="discount font-semibold text-[13px] text-primary">
               {product.discountPercentage}%
+            </span>
+          </div>
+          <div className="return text-end">
+            <span className="flex items-center gap-1 bg-yellow/35 w-fit px-1 text-sm rounded-sm border border-yellow">
+              <img src={star} className="h-3" />
+              <span>{product.rating}</span>
+            </span>
+            <span className="text-xs border border-primary text-primary px-1 rounded-sm">
+              {product.returnPolicy}
             </span>
           </div>
         </div>

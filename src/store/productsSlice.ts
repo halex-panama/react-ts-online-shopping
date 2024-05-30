@@ -2,6 +2,14 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { BASE_URL } from "../utils/apiUrl";
 import { STATUS } from "../utils/status";
 
+export type ReviewsProducts = {
+  rating: number;
+  comment: string;
+  date: string;
+  reviewerName: string;
+  reviewerEmail: string;
+};
+
 export type Products = {
   id: number;
   title: string;
@@ -14,6 +22,20 @@ export type Products = {
   category: string;
   thumbnail: string;
   images: string[];
+  tags: string[];
+  sku: string;
+  weight: number;
+  dimensions: {
+    width: number;
+    height: number;
+    depth: number;
+  };
+  warrantyInformation: string;
+  shippingInformation: string;
+  availabilityStatus: string;
+  reviews: ReviewsProducts[];
+  returnPolicy: string;
+  minimumOrderQuantity: string;
 };
 
 export type ProductsArr = {

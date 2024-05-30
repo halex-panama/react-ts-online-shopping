@@ -12,6 +12,7 @@ export default {
       black: "#000",
       gray: "#929292",
       warning: "#D0011B",
+      yellow: "#ffa500",
     },
   },
   plugins: [],
