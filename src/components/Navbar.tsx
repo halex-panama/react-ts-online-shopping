@@ -31,7 +31,7 @@ const Navbar = () => {
             <span className="navbar-brand-icon">
               <i className="fa-solid fa-bag-shopping"></i>
             </span>
-            <span className="navbar-brand-txt mx-2 hidden sm:flex">Shopi</span>
+            <span className="navbar-brand-txt mx-2 hidden md:flex">Shopi</span>
           </Link>
         </div>
 
@@ -41,7 +41,7 @@ const Navbar = () => {
             <div className="flex items-center">
               <input
                 type="text"
-                className="form-control text-sm w-full px-1 py-2 text-black placeholder:text-sm focus:outline-transparent"
+                className="form-control text-sm w-full px-1 py-2 text-black font-Manrope placeholder:text-sm focus:outline-transparent"
                 placeholder="Search products"
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
@@ -54,7 +54,7 @@ const Navbar = () => {
             </div>
           </div>
 
-          <ul className="navbar-nav hidden items-center text-xs ml-6 mt-2 gap-4 md:flex">
+          <ul className="navbar-nav hidden font-Manrope items-center text-xs ml-6 mt-2 gap-4 lg:flex">
             {categories &&
               categories.length > 0 &&
               categories.slice(0, 8).map((cat) => (

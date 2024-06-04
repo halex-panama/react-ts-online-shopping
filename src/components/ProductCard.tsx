@@ -26,7 +26,7 @@ const ProductCard = ({ product }: Props) => {
             alt={product.title}
           />
         </div>
-        <div className="product-item-info text-base py-3 px-5 text-center">
+        <div className="product-item-info text-base py-3 px-5 text-center font-Manrope">
           <div className="title py-2 capitalize border-b-2 border-black/20">
             {product.title}
           </div>

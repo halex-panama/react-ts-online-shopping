@@ -38,7 +38,7 @@ const Sidebar = () => {
               <li
                 key={category}
                 onClick={() => dispatch(setSidebarOff())}
-                className="py-3 mr-5 transition-all hover:text-primary hover:underline underline-offset-8 hover:translate-x-4 hover:scale-[1.01]"
+                className="py-3 mr-5 font-Manrope transition-all hover:text-primary hover:underline underline-offset-8 hover:translate-x-4 hover:scale-[1.01]"
               >
                 <Link
                   className="text-sm capitalize"

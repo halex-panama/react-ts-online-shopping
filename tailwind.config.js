@@ -3,16 +3,21 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
 
   theme: {
-    extend: {},
-    colors: {
-      transparent: "transparent",
-      current: "currentColor",
-      primary: "#EE4D2D",
-      white: "#ffffff",
-      black: "#000",
-      gray: "#929292",
-      warning: "#D0011B",
-      yellow: "#ffa500",
+    extend: {
+      colors: {
+        transparent: "transparent",
+        current: "currentColor",
+        primary: "#EE4D2D",
+        white: "#ffffff",
+        black: "#000",
+        gray: "#929292",
+        warning: "#D0011B",
+        yellow: "#ffa500",
+      },
+      fontFamily: {
+        Poppins: ["Poppins", "sans-serif"],
+        Manrope: ["Manrope", "sans-serif"],
+      },
     },
   },
   plugins: [],

@@ -6,7 +6,7 @@ import {
   ProductsPage,
   SearchPage,
 } from "./pages";
-import { Navbar, Sidebar } from "./components";
+import { Footer, Navbar, Sidebar } from "./components";
 
 import { Provider } from "react-redux";
 import store from "./store/store";
@@ -15,15 +15,18 @@ const App = () => {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <Navbar />
-        <Sidebar />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/cart" element={<CartPage />} />
-          <Route path="/category/:category" element={<CategoryPage />} />
-          <Route path="/products/:productId" element={<ProductsPage />} />
-          <Route path="/search/:searchTerm" element={<SearchPage />} />
-        </Routes>
+        <div className="app m-0 p-0 flex flex-col min-h-screen">
+          <Navbar />
+          <Sidebar />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/cart" element={<CartPage />} />
+            <Route path="/category/:category" element={<CategoryPage />} />
+            <Route path="/products/:productId" element={<ProductsPage />} />
+            <Route path="/search/:searchTerm" element={<SearchPage />} />
+          </Routes>
+          <Footer />
+        </div>
       </BrowserRouter>
     </Provider>
   );

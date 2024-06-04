@@ -5,6 +5,7 @@ import ProductList from "./ProductList";
 import Loader from "./Loader";
 import ProductCard from "./ProductCard";
 import CartMessage from "./CartMessage";
+import Footer from "./Footer";
 
 export {
   Navbar,
@@ -14,4 +15,5 @@ export {
   Loader,
   ProductCard,
   CartMessage,
+  Footer,
 };

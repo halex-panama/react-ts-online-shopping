@@ -22,7 +22,7 @@ const CartPage = () => {
   if (carts.length === 0) {
     return (
       <div className="container my-5 flex justify-center items-center">
-        <div className="empty-cart mx-auto flex flex-col items-center">
+        <div className="empty-cart mx-auto flex flex-col items-center font-Manrope">
           <img src={shopping_cart} alt="" />
           <span className="text-center font-semibold text-base">
             Your cart is empty
@@ -41,9 +41,9 @@ const CartPage = () => {
   return (
     <div className="cart bg-gray-50 overflow-x-scroll">
       <div className="container p-0 mx-auto">
-        <div className="cart-ctable sm:min-w-[1000px]:">
-          <div className="cart-chead my-8 px-8 rounded-sm bg-white hidden sm:grid">
-            <div className="cart-ctr grid min-h-10 items-center border-black/10 border-y-2 font-semibold">
+        <div className="cart-ctable md:min-w-[1000px]:">
+          <div className="cart-chead my-8 px-8 rounded-sm bg-white hidden md:grid">
+            <div className="cart-ctr grid min-h-10 items-center border-black/10 border-y-2 font-semibold font-Manrope">
               <div className="cart cth">
                 <span className="cart-ctxt">S.N</span>
               </div>
@@ -68,10 +68,10 @@ const CartPage = () => {
           <div className="cart-cbody px-8 rounded-sm bg-white my-2">
             {carts.map((cart, index) => (
               <div
-                className="cart-ctr min-h-10  py-2 border-b-2 flex flex-col gap-2 border-black/10 sm:grid sm:border-0"
+                className="cart-ctr min-h-10  py-2 border-b-2 flex flex-col gap-2 border-black/10 md:grid md:border-0 font-Manrope"
                 key={cart.id}
               >
-                <div className="card-ctd hidden sm:grid">
+                <div className="card-ctd hidden md:grid">
                   <span className="cart-ctxt">{index + 1}</span>
                 </div>
                 <div className="card-ctd">
@@ -82,7 +82,7 @@ const CartPage = () => {
                   </Link>
                 </div>
                 <div className="card-ctd">
-                  <span className="cart-ctxt text-primary sm:text-black">
+                  <span className="cart-ctxt text-primary md:text-black">
                     {formatPrice(cart.discountedPrice)}
                   </span>
                 </div>
@@ -121,7 +121,7 @@ const CartPage = () => {
                     </button>
                   </div>
                 </div>
-                <div className="card-ctd hidden sm:grid">
+                <div className="card-ctd hidden md:grid">
                   <span className="cart-ctxt text-primary">
                     {formatPrice(cart.totalPrices)}
                   </span>
@@ -139,7 +139,7 @@ const CartPage = () => {
             ))}
           </div>
 
-          <div className="cart-cfoot gap-4 grid my-8 px-8  sm:flex sm:items-center  sm:justify-between">
+          <div className="cart-cfoot gap-4 grid my-8 px-8  md:flex md:items-center  md:justify-between">
             <div className="cart-cfoot-l">
               <button
                 className="clear-cart border-2 border-warning text-warning uppercase p-2 flex items-center gap-1"
@@ -152,7 +152,7 @@ const CartPage = () => {
             </div>
 
             <div className="cart-cfoot-r flex flex-col justify-end">
-              <div className="total-txt -mr-4 flex items-center justify-end gap-2">
+              <div className="total-txt  flex items-center justify-end gap-2 font-Manrope">
                 <div>
                   Total ({itemsCount}) items: {""}
                 </div>
