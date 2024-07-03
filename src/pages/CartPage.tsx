@@ -39,7 +39,7 @@ const CartPage = () => {
   }
 
   return (
-    <div className="cart bg-gray-50 overflow-x-scroll">
+    <div className="cart bg-gray-50 overflow-x-hidden">
       <div className="container p-0 mx-auto">
         <div className="cart-ctable md:min-w-[1000px]:">
           <div className="cart-chead my-8 px-8 rounded-sm bg-white hidden md:grid">

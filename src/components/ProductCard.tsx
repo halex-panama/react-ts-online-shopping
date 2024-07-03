@@ -24,6 +24,7 @@ const ProductCard = ({ product }: Props) => {
             className="h-64 overflow-hidden rounded-t-lg"
             src={product.thumbnail}
             alt={product.title}
+            loading="lazy"
           />
         </div>
         <div className="product-item-info text-base py-3 px-5 text-center font-Manrope">
@@ -43,7 +44,7 @@ const ProductCard = ({ product }: Props) => {
           </div>
           <div className="return text-end">
             <span className="flex items-center gap-1 bg-yellow/35 w-fit px-1 text-sm rounded-sm border border-yellow">
-              <img src={star} className="h-3" />
+              <img src={star} className="h-3" loading="lazy" />
               <span>{product.rating}</span>
             </span>
             <span className="text-xs border border-primary text-primary px-1 rounded-sm">

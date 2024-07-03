@@ -84,10 +84,11 @@ const ProductsPage = () => {
                     src={singleProduct.thumbnail}
                     className="object-cover h-full w-full"
                     alt=""
+                    loading="lazy"
                   />
                 </div>
 
-                <div className="product-img-thumbs flex items-center my-2 overflow-x-scroll">
+                <div className="product-img-thumbs flex items-center my-2 overflow-x-hidden">
                   {singleProduct &&
                     singleProduct.images &&
                     singleProduct.images[1] && (
@@ -96,6 +97,7 @@ const ProductsPage = () => {
                           className="hover:scale-95 object-cover h-full w-full"
                           src={singleProduct.images[1]}
                           alt=""
+                          loading="lazy"
                         />
                       </div>
                     )}
@@ -107,6 +109,7 @@ const ProductsPage = () => {
                           className="hover:scale-95 object-cover h-full w-full"
                           src={singleProduct.images[2]}
                           alt=""
+                          loading="lazy"
                         />
                       </div>
                     )}
@@ -118,6 +121,7 @@ const ProductsPage = () => {
                           className="hover:scale-95 object-cover h-full w-full"
                           src={singleProduct.images[3]}
                           alt=""
+                          loading="lazy"
                         />
                       </div>
                     )}
@@ -129,6 +133,7 @@ const ProductsPage = () => {
                           className="hover:scale-95 object-cover h-full w-full"
                           src={singleProduct.images[4]}
                           alt=""
+                          loading="lazy"
                         />
                       </div>
                     )}
@@ -137,7 +142,7 @@ const ProductsPage = () => {
             </div>
 
             <div className="product-single-r">
-              <div className="product-details ">
+              <div className="product-details space-y-4">
                 <div className="title pb-2 border-b-2 border-black/20 text-xl capitalize">
                   {singleProduct.title}
                 </div>
@@ -214,7 +219,7 @@ const ProductsPage = () => {
                   )}
                 </div>
 
-                <div className="btns flex gap-2">
+                <div className="btns flex gap-2 justify-around md:justify-normal">
                   <button
                     type="button"
                     className="add-to-cart-btn text-base border-2 border-primary w-40 h-12  text-primary bg-primary/20 hover:bg-transparent transition-colors"

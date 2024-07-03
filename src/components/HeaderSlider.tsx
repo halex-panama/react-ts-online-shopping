@@ -24,6 +24,7 @@ const HeaderSlider = () => {
                 src={sliderImgs[0]}
                 className="rounded-md"
                 alt="slider-image"
+                loading="lazy"
               />
             </div>
             <div className="slider-item">
@@ -31,6 +32,7 @@ const HeaderSlider = () => {
                 src={sliderImgs[1]}
                 className="rounded-md"
                 alt="slider-image"
+                loading="lazy"
               />
             </div>
           </Slider>
