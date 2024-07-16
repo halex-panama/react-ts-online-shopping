@@ -29,10 +29,10 @@ const SearchPage = () => {
   return (
     <main>
       <div
-        className={`main-content bg-gray/30 ${
+        className={`main-content  ${
           searchProductStatus === STATUS.LOADING
             ? "bg-transparent"
-            : "bg-gray-200"
+            : "bg-gray/30"
         }`}
       >
         <div className="container px-4 mx-auto md:py-8">

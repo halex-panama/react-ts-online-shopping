@@ -35,4 +35,4 @@ Start the project on your local machine
 
 ## Screenshots
 
-![App Screenshot](https://i.ibb.co.com/mG6scGR/shopi-clone-netlify-app-products-1.png)
+![App Screenshot](https://i.ibb.co/kDBhYdX/Shopi.png)

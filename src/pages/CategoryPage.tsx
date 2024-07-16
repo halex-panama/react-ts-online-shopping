@@ -19,7 +19,7 @@ const CategoryPage = () => {
   return (
     <main>
       <div
-        className={`main-content bg-gray-200 ${
+        className={`main-content ${
           categoryProductsStatus === STATUS.LOADING
             ? "bg-transparent"
             : "bg-gray/30"

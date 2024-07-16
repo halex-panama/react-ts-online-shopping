@@ -33,7 +33,11 @@ const HomePage = () => {
         <HeaderSlider />
       </div>
 
-      <div className="main-content h-full bg-gray/30">
+      <div
+        className={`main-content h-full ${
+          productStatus === STATUS.LOADING ? "bg-transparent" : "bg-gray/30"
+        }`}
+      >
         <div className="container px-4 mx-auto md:py-8">
           <div className="categories py-5">
             <div className="categories-item mb-[4.8rem]">
