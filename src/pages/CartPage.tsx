@@ -9,6 +9,7 @@ import {
   toggleCartQty,
 } from "../store/cartSlice";
 import { useEffect } from "react";
+import { CheckoutButton } from "../components";
 
 const CartPage = () => {
   const { dispatch, cartState } = useAppHooks();
@@ -161,9 +162,7 @@ const CartPage = () => {
                 </span>
               </div>
 
-              <button className="mt-3 text-white bg-primary py-2">
-                Check Out
-              </button>
+              <CheckoutButton cartItems={carts} />
             </div>
           </div>
         </div>

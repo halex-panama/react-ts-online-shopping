@@ -6,6 +6,7 @@ import Loader from "./Loader";
 import ProductCard from "./ProductCard";
 import CartMessage from "./CartMessage";
 import Footer from "./Footer";
+import CheckoutButton from "./CheckoutButton";
 
 export {
   Navbar,
@@ -16,4 +17,5 @@ export {
   ProductCard,
   CartMessage,
   Footer,
+  CheckoutButton,
 };

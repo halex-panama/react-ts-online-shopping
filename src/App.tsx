@@ -5,6 +5,8 @@ import {
   CategoryPage,
   ProductsPage,
   SearchPage,
+  SuccessCheckout,
+  FailedCheckout,
 } from "./pages";
 import { Footer, Navbar, Sidebar } from "./components";
 
@@ -24,6 +26,8 @@ const App = () => {
             <Route path="/category/:category" element={<CategoryPage />} />
             <Route path="/products/:productId" element={<ProductsPage />} />
             <Route path="/search/:searchTerm" element={<SearchPage />} />
+            <Route path="/checkout-succes" element={<SuccessCheckout />} />
+            <Route path="/checkout-failed" element={<FailedCheckout />} />
           </Routes>
           <Footer />
         </div>
